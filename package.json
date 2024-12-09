@@ -1,0 +1,21 @@
+{
+  "name": "rspress-asset-test",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "rspress build",
+    "check": "biome check --write",
+    "dev": "rspress dev",
+    "format": "biome format --write",
+    "preview": "rspress preview"
+  },
+  "dependencies": {
+    "@rsbuild/core": "^1.1.9",
+    "rspress": "^1.37.3",
+    "zephyr-rspack-plugin": "^0.0.31"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.3",
+    "@types/node": "^18.11.17"
+  }
+}
