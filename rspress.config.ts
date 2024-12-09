@@ -1,16 +1,16 @@
-import * as path from "path";
+import * as path from "node:path";
 import { defineConfig } from "rspress/config";
-import { withZephyr } from "zephyr-rspack-plugin";
-import { RsbuildPlugin } from "@rsbuild/core";
+import type { RspressPlugin } from "@rspress/core";
 
-const zephyrRsbuildPlugin = (): RsbuildPlugin => ({
-  name: "zephyr-rsbuild-plugin",
-  setup(api) {
-    api.modifyRspackConfig(async (config, utils) => {
-      config = await withZephyr()(config);
-    });
-  },
-  pre: ["RsbuildCorePlugin", "RsbuildHtmlPlugin", "DefinePlugin"]
+const testPlugin = (): RspressPlugin => ({
+  name: "test-plugin",
+  builderConfig: {
+    tools: {
+      rspack: () => {
+        console.log("!!!rspress plugin");
+      }
+    }
+  }
 });
 
 export default defineConfig({
@@ -36,7 +36,7 @@ export default defineConfig({
       copy: {
         patterns: [{ from: "docs/public" }]
       }
-    },
-    plugins: [zephyrRsbuildPlugin()]
-  }
+    }
+  },
+  plugins: [testPlugin()]
 });

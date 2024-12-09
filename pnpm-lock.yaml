@@ -21,6 +21,9 @@ importers:
       '@biomejs/biome':
         specifier: ^1.9.3
         version: 1.9.4
+      '@rspress/core':
+        specifier: ^1.37.4
+        version: 1.37.4(webpack@5.97.1(esbuild@0.17.19))
       '@types/node':
         specifier: ^18.11.17
         version: 18.19.67
